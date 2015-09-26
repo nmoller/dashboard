@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>D3: Empty page template</title>
+	<script type="text/javascript" src="d3.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	<style type="text/css">
+		/* CSS style rules will go here */
+	</style>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jqplot/1.0.8/jquery.jqplot.min.css">
+</head>
+<body>
+    
+    <div id="chart2" style="width:1300px;"></div>
+	
+<script src="//cdn.jsdelivr.net/g/jqplot@1.0.8(jquery.jqplot.min.js+plugins/jqplot.barRenderer.min.js+plugins/jqplot.blockRenderer.min.js+plugins/jqplot.pieRenderer.min.js+plugins/jqplot.trendline.min.js+plugins/jqplot.BezierCurveRenderer.min.js+plugins/jqplot.bubbleRenderer.min.js+plugins/jqplot.canvasAxisLabelRenderer.min.js+plugins/jqplot.canvasAxisTickRenderer.min.js+plugins/jqplot.canvasOverlay.min.js+plugins/jqplot.canvasTextRenderer.min.js+plugins/jqplot.categoryAxisRenderer.min.js+plugins/jqplot.ciParser.min.js+plugins/jqplot.cursor.min.js+plugins/jqplot.dateAxisRenderer.min.js+plugins/jqplot.donutRenderer.min.js+plugins/jqplot.dragable.min.js+plugins/jqplot.enhancedLegendRenderer.min.js+plugins/jqplot.funnelRenderer.min.js+plugins/jqplot.highlighter.min.js+plugins/jqplot.json2.min.js+plugins/jqplot.logAxisRenderer.min.js+plugins/jqplot.mekkoAxisRenderer.min.js+plugins/jqplot.mekkoRenderer.min.js+plugins/jqplot.meterGaugeRenderer.min.js+plugins/jqplot.mobile.min.js+plugins/jqplot.ohlcRenderer.min.js+plugins/jqplot.pointLabels.min.js+plugins/jqplot.pyramidAxisRenderer.min.js+plugins/jqplot.pyramidGridRenderer.min.js+plugins/jqplot.pyramidRenderer.min.js)">
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    
+    $(document).ready(function(){
+  var line1=[["2013-02-28",1], ["2013-04-23",1], ["2013-04-25",1], ["2013-05-03",4], ["2013-05-08",4], ["2013-05-15",1], ["2013-05-16",3], ["2013-05-28",1], ["2014-02-27",1], ["2014-02-28",1], ["2014-03-10",1], ["2014-03-25",2], ["2014-05-13",1], ["2014-05-22",5], ["2014-07-07",1], ["2014-07-16",19], ["2014-09-16",1], ["2014-09-26",3], ["2014-10-20",2], ["2014-10-23",25], ["2014-10-27",2], ["2014-10-29",29], ["2014-10-31",1], ["2014-11-24",1], ["2014-11-26",62], ["2015-01-14",1], ["2015-01-19",1], ["2015-01-23",1], ["2015-02-20",1], ["2015-02-25",1], ["2015-03-23",1], ["2015-05-11",1], ["2015-05-19",2], ["2015-06-02",2], ["2015-06-30",1], ["2015-08-24",46]];
+  var plot1 = $.jqplot('chart2', [line1], {
+    title:'Default Date Axis',
+    axes:{
+        xaxis:{
+            renderer:$.jqplot.DateAxisRenderer
+        }
+    },
+    series:[{lineWidth:4, markerOptions:{style:'square'}}]
+  });
+});
+
+});
+
+	</script>
+</body>
+</html>
