@@ -7,7 +7,7 @@ Dashboard
 
 </head>
 <body>
-  <div id="test"></div>
+  <div id="test"> <select id="course-select"></select></div>
   
   <div id="graphs"></div>
   
@@ -761,15 +761,24 @@ Dashboard
        });
       
       //$.jqplot.config.enablePlugins = true;
+      selector = $('#course-select');
       
       courses.forEach(function(item){
-        id = 'graph_' + item;
-        $('#graphs').append('<div id="' +id +'"></div>');
-        $('div#'+id).css('display','inline-block');
-        $('div#'+id).css('margin-left','50px');
+        
+        id = item;
+        selector.append('<option value="'+ id + '">' + item + '</option>');
+        
+        
+      });
+      visible = 0;
+      selector.change(function() {
+        item = $('option:selected')[0].value;
+        $('#graphs').append('<div id="' +item +'"></div>');
+        $('#' + visible).toggle()
+        visible = item;
         width_val = series[item].length * 100
-        $('div#'+id).css('width', width_val + 'px');
-        $('#'+id).jqplot([series[item]], {
+        $('div#'+item).css('width', width_val + 'px');
+        $('#'+item).jqplot([series[item]], {
           title:'Groups ' + item,
           seriesDefaults:{
               renderer:$.jqplot.BarRenderer,
@@ -789,7 +798,6 @@ Dashboard
               }
           }
         });
-        
       });
     });
     
