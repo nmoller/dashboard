@@ -1,0 +1,32 @@
+table {
+  width: 650px; margin: auto; border-collapse: collapse;
+}
+thead {border-bottom: 2px solid #000;}
+tbody {border-bottom: 2px solid #000;}
+tbody tr:nth-child(even) td, tbody tr.even td {background-color: #e6e6e6;}
+th, td {
+  padding: 10px 50px 10px 0; border: none; cursor: default; text-align: center; 
+}; 
+th {
+  border-bottom: 2px solid #000; cursor: pointer;
+}
+
+td:first-child, th:first-child {padding-left: 10px; width: 200px;}
+td:last-child {padding-right: 10px; width: 200px;}
+
+.ascending:hover:after{
+  content: :"";display: block;border-width: 7px;
+  border-style: solid; border-left-color: transparent; border-bottom-color: #000;
+  border-right-color: transparent; 
+  border-bottom: none; position: absolute; margin-top: -3px;
+  right: 15px; top: 50%;
+}
+
+
+.descending:hover:after {
+  content: :"";display: block;border-width: 7px;
+  border-style: solid; border-left-color: transparent; border-top-color: #000;
+  border-right-color: transparent; 
+  border-bottom: none; position: absolute; margin-top: -3px;
+  right: 15px; top: 50%;
+}

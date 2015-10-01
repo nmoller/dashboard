@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Tests</title>
+        
+    </head>
+     <link rel='stylesheet' href="css/table1.css"  type='text/css' media='all'>
+<body>
+    <table>
+    <thead>
+        <tr data-bind="click: sort">
+            <th data-bind="css: shortnameOrder">shortname</th>
+            <th data-bind="css: etudiantsOrder">etudiants</th>
+            <th data-bind="css: nameOrder">name</th>
+            <th data-bind="css: idnumberOrder">idnumber</th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach: elements">
+        <tr>
+            <td data-bind="text: shortname"></td>
+            <td data-bind="text: etudiants"></td>
+            <td data-bind="text: name"></td>
+            <td data-bind="text: idnumber"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <script src="//code.jquery.com/jquery-1.11.3.min.js" ></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+    <script src="data/data1.js" ></script>
+    <script>
+    $(function() {
+        var vm = {
+            elements: ko.observableArray(my_input),
+            shortnameOrder: ko.observable("ascending"),
+            etudiantsOrder: ko.observable("ascending"),
+            nameOrder: ko.observable("ascending"),
+            idnumberOrder: ko.observable("ascending"),            
+
+            
+            sort: function (viewmodel, e) {
+            var orderProp = $(e.target).attr("data-bind").split(" ")[1],
+                orderVal = viewmodel[orderProp](),
+                comparatorProp = orderProp.split("O")[0];
+            
+            viewmodel.elements.sort(function(a, b) {
+                var propA = a[comparatorProp],
+                    propB = b[comparatorProp];
+                
+                if (typeof (propA) !== typeof (propB)) {
+                    propA = (typeof (propA) === "string") ? 0 : propA;
+                    propB = (typeof (propB) === "string") ? 0 : propB;
+                }
+                
+                if (orderVal === "ascending") {
+                    return (propA === propB) ? 0 : (propA<propB)? -1 : 1;
+                }
+                else {
+                    return (propA === propB) ? 0 : (propA<propB)? 1 : -1;
+                }
+            });
+            
+            orderVal = (orderVal === "ascending") ? "descending" :  "ascending";
+            
+            viewmodel[orderProp](orderVal);
+            for (prop in viewmodel) {
+                if (prop.indexOf("Order") !== -1 && prop !== orderProp) {
+                    viewmodel[prop]("ascending");
+                }
+            }
+        }
+        }
+        ko.applyBindings(vm);
+        
+        
+    });
+    </script>
+       
+
+    </body>
+</html>
